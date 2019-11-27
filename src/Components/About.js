@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSmileWink, faCode } from '@fortawesome/free-solid-svg-icons'
 
 
 const Header = styled.h1`
@@ -25,7 +27,7 @@ const Card = styled.div`
 const SubContainer = styled.div`
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: flex-start;
 `
 
 const Actions = styled.div`
@@ -76,7 +78,7 @@ const LinkDiv = styled.div`
 const MinDiv = styled.div`
 	width: 100%;
 	background: rgb(32, 32, 32, 0.5);
-	overflow: hidden;
+    overflow: hidden;
     text-align: center;
     font-size: 24px;
 `
@@ -107,6 +109,11 @@ const FooterDiv = styled.div`
 	color: white;
 	text-transform: uppercase;
 `
+
+const Item = styled.span`
+    font-size: 18px;
+`
+
 const About = () => {
     return (
         <div className="container">
@@ -116,8 +123,17 @@ const About = () => {
             <br/>
             <SubContainer>
                 <MinDiv>
-                    23 y/o Graduate from <SpanDiv>Tarlac State University.</SpanDiv><br/>
+                    Graduated from <SpanDiv>Tarlac State University.</SpanDiv><br/>
                     Currently working as Sr. Software Developer and now Full Stack Developer at BGC.
+                    <hr/>
+                    I love learning new technologies, always seeking for challenges. <FontAwesomeIcon icon={faSmileWink}/>
+                    <hr/>
+                    <Item className="fa fa-code"></Item><SpanDiv>Programming Languages</SpanDiv>
+                    <br/>Javascript
+                    <br/>PHP
+                    <br/>C#
+                    <br/>Python
+                    <br/>Dart
                 </MinDiv>
             </SubContainer>
         </div>

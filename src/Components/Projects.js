@@ -96,6 +96,11 @@ const ImgDiv = styled.div`
 	}
 `
 
+const ALink = styled.a`
+	color: #fff;
+	text-decoration: none;
+`
+
 const FooterDiv = styled.div`
 	margin-left: 50%;
 	transform: translate(-50%);
@@ -139,7 +144,7 @@ export default class Projects extends Component {
 								fluid={false} 
 								playsInline 
 								poster={'https://udemy-images.udemy.com/course/750x422/1719462_5050.jpg'}
-								src="https://instagram.fmnl5-1.fna.fbcdn.net/vp/6dccfd5a6edcf01452667344e8049246/5C6D38CF/t50.2886-16/50573984_1857317671064163_2064463356097462272_n.mp4?_nc_ht=instagram.fmnl5-1.fna.fbcdn.net"/>
+								src={require('../Theme/videos/dart-project.MP4')}/>
 							
 						</SubActionsBody>
 						<SubActionsMini>
@@ -186,7 +191,7 @@ export default class Projects extends Component {
 				<hr/>
 				<FooterDiv>
 					<MinDiv>
-						<a target="_blank" href="https://github.com/nincas">More..</a>
+						<ALink target="_blank" href="https://github.com/nincas">SEE More..</ALink>
 					</MinDiv>
 				</FooterDiv>
 			</div>

@@ -81,6 +81,11 @@ export default createGlobalStyle`
         color: white;
     }
 
+    .fa-github {
+        background: #333333;
+        color: white;
+    }
+
     @media screen and (max-width: 320px) {
         body {
             padding-left: 0;

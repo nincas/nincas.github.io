@@ -54,8 +54,12 @@ const LoaderContainer = styled.div`
 `
 
 const LoadingText = styled.h3`
-    padding-top: 80px;
+    padding-top: 30px;
     text-align: center;
+`
+
+const Name = styled.span`
+    color: yellow;
 `
 
 export default function Loader(props) {
@@ -65,7 +69,7 @@ export default function Loader(props) {
         <LoaderContainer>
             <LoaderDiv/>
             <PreLoaderDiv/>
-            <LoadingText>Loading {name} ..</LoadingText>
+            <LoadingText>Loading <Name>{name.toUpperCase()}</Name> </LoadingText>
         </LoaderContainer>
     </React.Fragment>
   )

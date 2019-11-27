@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLaptopCode, faInfoCircle, faMapMarkerAlt, faCode, faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 
 
 const Container = styled.div`
@@ -52,14 +54,14 @@ export default function Index() {
 			<HeaderDiv className="display-4"><h1  style={{fontSize: "10rem"}}>NNOCSUPNN >></h1></HeaderDiv>
 			<p className="lead">
 				<BlockQuote>
-					<SpanTxt>FULLSTACK DEVELOPER</SpanTxt>
+					<SpanTxt><FontAwesomeIcon icon={faCode}/> FULLSTACK DEVELOPER</SpanTxt>
 					<br/>
-					<SpanTxt>~ since 2017</SpanTxt>
+					<SpanTxt><FontAwesomeIcon icon={faMapMarkerAlt}/> 5th Ave. BGC, Taguig City</SpanTxt>
 				</BlockQuote>
 			</p>
-			<hr className="my-4"/>
-			<p>Paniqui, Tarlac City</p>
+			
 			<p className="lead">
+				<FontAwesomeIcon icon={faQuoteLeft}/> .. Paid to learn"
 			</p>
 		</Container>
     </div>

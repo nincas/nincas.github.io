@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHashtag } from '@fortawesome/free-solid-svg-icons'
 
 
 const Container = styled.div`
@@ -90,7 +92,7 @@ class Contact extends Component {
             return { position: 100, clicked: true }
         })
 
-        console.log(e.target);
+        alert('Not working. Sorry! :)')
     }
 
     render () {
@@ -99,6 +101,7 @@ class Contact extends Component {
                 <Container position={this.state.position} clicked={this.state.clicked}>
                     <MinDiv><h1>SEND ME SOME LOVE! >></h1></MinDiv>
                     <hr/>
+                    Tel No. +639568534856
                     <form action="/">
                         <input type="email" required placeholder="Enter email" name="email" />
                         <spacer/>

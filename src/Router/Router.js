@@ -30,6 +30,8 @@ const Footer = () => {
             <a target="_blank" href="https://instagram.com/nnocsupnn" className="fa fa-instagram"><React.Fragment/></a>
             <a target="_blank" href="https://www.linkedin.com/in/nnocsupnn/" className="fa fa-linkedin"><React.Fragment/></a>
             <a target="_blank" href="mailto:nincas21@gmail.com" className="fa fa-google"><React.Fragment/></a>
+            <a target="_blank" href="https://github.com/nincas" className="fa fa-github"><React.Fragment/></a>
+
         </div>
     )
 };
@@ -52,14 +54,14 @@ export default class Router extends Component {
         this.setState({ drawerOpen: false })
     }
 
-    lazyLoader = (Component) => {
+    lazyLoader = (Component, name = '') => {
         var backdrop;
         if (this.state.drawerOpen) {
             backdrop = <Backdrop clicked={this.backdropClickHandler}/>
         }
 
         return props => (
-            <Suspense fallback={<Loader/>}>
+            <Suspense fallback={<Loader name={name}/>}>
                <React.Fragment>
                    <Navbar triggerDrawer={this.drawerClickHandler}/>
                    <SideDrawer show={this.state.drawerOpen}/>
@@ -77,10 +79,10 @@ export default class Router extends Component {
         <BrowserRouter>
             <div>
             <Switch>
-                <Route exact={true} path="/" component={this.lazyLoader(Index)}/>
-                <Route exact={true} path="/projects" component={this.lazyLoader(Projects)}/>
-                <Route exact={true} path="/contact" component={this.lazyLoader(Contact)}/>
-                <Route exact={true} path="/about" component={this.lazyLoader(About)}/>
+                <Route exact={true} path="/" component={this.lazyLoader(Index, 'home')}/>
+                <Route exact={true} path="/projects" component={this.lazyLoader(Projects, 'projects')}/>
+                <Route exact={true} path="/contact" component={this.lazyLoader(Contact, 'contact')}/>
+                <Route exact={true} path="/about" component={this.lazyLoader(About, 'about')}/>
 
                 {/* Subpages */}
                 <Route path="/project/:id" component={this.lazyLoader(ProjectPage)}/>
