@@ -50,6 +50,10 @@
     color: darkturquoise !important;
 }
 
+.nav-active {
+    color: darkturquoise !important;
+}
+
 @media screen and (max-width: 768px) {
     .toolbar {
         padding: 0px;

@@ -9,7 +9,8 @@ const LoaderDiv = styled.div`
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
     animation: Loading 1s ease infinite;
-    margin-top: 10%;
+    top: 45%;
+    transform: translateY(50%);
     position: absolute;
 
     @keyframes Loading {
@@ -31,7 +32,8 @@ const PreLoaderDiv = styled.div`
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
     animation: PreLoading 1s ease-in-out infinite;
-    margin-top: 10%;
+    top: 45%;
+    transform: translateY(50%);
     position: absolute;
 
     @keyframes PreLoading {

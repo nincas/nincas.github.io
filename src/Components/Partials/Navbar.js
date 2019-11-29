@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import './Navbar.css'
 import DrawerToggle from './SideDrawer/DrawerToggleButton'
 import styled from 'styled-components'
@@ -28,13 +28,13 @@ export default function Navbar(props) {
       <div className="toolbar_navigation-items">
         <ul>
           <li>
-            <Link to="/projects"><FontAwesomeIcon icon={faFolder}/> PROJECTS</Link>
+            <NavLink to="/projects" activeClassName="nav-active"><FontAwesomeIcon icon={faFolder}/> PROJECTS</NavLink>
           </li>
           <li>
-            <Link to="/contact"><FontAwesomeIcon icon={faAddressCard}/> CONTACT</Link>
+            <NavLink to="/contact" activeClassName="nav-active"><FontAwesomeIcon icon={faAddressCard}/> CONTACT</NavLink>
           </li>
           <li>
-            <Link to="/about"><FontAwesomeIcon icon={faInfoCircle} /> ABOUT</Link>
+            <NavLink to="/about" activeClassName="nav-active"><FontAwesomeIcon icon={faInfoCircle} /> ABOUT</NavLink>
           </li>
         </ul>
       </div>
