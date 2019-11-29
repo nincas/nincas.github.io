@@ -11,8 +11,7 @@ export default createGlobalStyle`
         background: url(${require('./images/bg-image.jpg')}) fixed center no-repeat;
         background-size: cover;
         color: #fff !important;
-        height: 100%;
-        overflow-y: hidden;
+        height: 100vh;
     }
 
     textarea {
@@ -27,18 +26,19 @@ export default createGlobalStyle`
     }
 
     html {
-        height: 100%;
+       
     }
 
     .container {
         margin-top: 70px;
+        padding-bottom: 100px;
     }
 
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0;
         bottom: 0;
-
+        margin-top: 100px;
         width: 100%;
         height: 40px;
         display: flex;
@@ -86,11 +86,19 @@ export default createGlobalStyle`
         color: white;
     }
 
-    @media screen and (max-width: 320px) {
-        body {
-            padding-left: 0;
-            padding-right: 0;
-            width: 100%;
+    body {
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+
+    ul {
+        list-style: none !important;
+    }
+
+    @media screen and (max-width: 768px) {
+        #headerName h1 {
+            font-size: 24px !important;    
         }
     }
 `

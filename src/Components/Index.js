@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLaptopCode, faInfoCircle, faMapMarkerAlt, faCode, faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
-
+import { Helmet } from 'react-helmet'
 
 const Container = styled.div`
 	h1 {
@@ -35,6 +35,7 @@ const HeaderDiv = styled.div`
 	overflow: hidden;
 	background: rgb(32, 32, 32, 0.5);
 	animation: blink 1s ease;
+	padding-left: 30px;
 
 	@keyframes blink {
 		from {
@@ -50,8 +51,11 @@ const HeaderDiv = styled.div`
 export default function Index() {
   return (
     <div className="container">
+		<Helmet>
+			<title>nnocsupnn</title>
+		</Helmet>
 		<Container className="jumbotron">
-			<HeaderDiv className="display-4"><h1  style={{fontSize: "10rem"}}>NNOCSUPNN >></h1></HeaderDiv>
+			<HeaderDiv id="headerName" className="display-4"><h1  style={{fontSize: "10rem"}}>NNOCSUPNN >></h1></HeaderDiv>
 			<p className="lead">
 				<BlockQuote>
 					<SpanTxt><FontAwesomeIcon icon={faCode}/> FULLSTACK DEVELOPER</SpanTxt>

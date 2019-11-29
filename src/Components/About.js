@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSmileWink, faCode } from '@fortawesome/free-solid-svg-icons'
+import { Helmet } from 'react-helmet'
 
 
 const Header = styled.h1`
@@ -114,9 +115,19 @@ const Item = styled.span`
     font-size: 18px;
 `
 
+const ExpCont = styled.div`
+    border-bottom: 1px solid #fff;
+    width: auto;
+    text-decoration: none;
+    padding-top: 10px;
+`
+
 const About = () => {
     return (
         <div className="container">
+            <Helmet>
+                <title>About</title>
+            </Helmet>
             <MinDiv>
                 <Header>ABOUT >></Header>
             </MinDiv>
@@ -124,11 +135,31 @@ const About = () => {
             <SubContainer>
                 <MinDiv>
                     Graduated from <SpanDiv>Tarlac State University.</SpanDiv><br/>
-                    Currently working as Sr. Software Developer and now Full Stack Developer at BGC.
-                    <hr/>
+                    <SpanDiv>Experiences</SpanDiv>
+                    <ExpCont>
+                        <SpanDiv>Pasig, One San Miguel - 2017/18</SpanDiv>
+                        <ul>
+                            <li>IT Desktop/Programmer</li>
+                        </ul>
+                    </ExpCont>
+                    <ExpCont>
+                        <SpanDiv>Makati - 2018/19</SpanDiv>
+                        <ul>
+                            <li>Software Developer</li>
+                            <li>Sr Software Developer</li>
+
+                        </ul>
+                    </ExpCont>
+                    <ExpCont>
+                        <SpanDiv>Taguig, BGC - 2019</SpanDiv>
+                        <ul>
+                            <li>Full Stack Developer</li>
+                        </ul>
+                    </ExpCont>
                     I love learning new technologies, always seeking for challenges. <FontAwesomeIcon icon={faSmileWink}/>
                     <hr/>
-                    <Item className="fa fa-code"></Item><SpanDiv>Programming Languages</SpanDiv>
+                    <Item className="fa fa-code"></Item>
+                    <SpanDiv>Programming Languages</SpanDiv>
                     <br/>Javascript
                     <br/>PHP
                     <br/>C#

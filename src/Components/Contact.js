@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHashtag } from '@fortawesome/free-solid-svg-icons'
-
+import { Helmet } from 'react-helmet'
 
 const Container = styled.div`
     font-size: 3rem;
     font-weight: normal !important;
-    width: 50%;
     margin: auto;
     align-items: center;
     display: flex;
@@ -98,6 +97,9 @@ class Contact extends Component {
     render () {
         return (
             <div className="container">
+                <Helmet>
+                    <title>Contact</title>
+                </Helmet>
                 <Container position={this.state.position} clicked={this.state.clicked}>
                     <MinDiv><h1>SEND ME SOME LOVE! >></h1></MinDiv>
                     <hr/>

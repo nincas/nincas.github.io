@@ -69,7 +69,7 @@ export default function Loader(props) {
         <LoaderContainer>
             <LoaderDiv/>
             <PreLoaderDiv/>
-            <LoadingText>Loading <Name>{name.toUpperCase()}</Name> </LoadingText>
+            {/* <LoadingText>Loading <Name>{name.toUpperCase()}</Name> </LoadingText> */}
         </LoaderContainer>
     </React.Fragment>
   )

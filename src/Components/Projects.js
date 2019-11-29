@@ -3,6 +3,10 @@ import styled from 'styled-components'
 import { Link, Redirect	 } from 'react-router-dom'
 import { Player } from 'video-react';
 import "../../node_modules/video-react/dist/video-react.css";
+import { Helmet } from 'react-helmet'
+
+import phpImg from '../Theme/images/php.png'
+import flutterImg from '../Theme/images/flutter.png'
 
 
 const Header = styled.h1`
@@ -28,6 +32,7 @@ const Card = styled.div`
 const SubContainer = styled.div`
 	display: flex;
 	flex-direction: row;
+	height: 275px;
 	justify-content: space-between;
 `
 
@@ -86,7 +91,7 @@ const MinDiv = styled.div`
 const ImgDiv = styled.div`
 	width: 100%;
 	height: 100%;
-	background-image: url("https://pluralsight.imgix.net/paths/python-7be70baaac.png");
+	background-image: url("${props => props.imgSrc || ""}");
 	background-position: center;
   	background-size: cover;
 	
@@ -110,6 +115,12 @@ const FooterDiv = styled.div`
 	text-transform: uppercase;
 `
 
+
+const MainContainer = styled.div`
+	overflow-x: auto;
+	overflow-y: hidden;
+`
+
 export default class Projects extends Component {
 	state = {
 		redirect: false
@@ -128,10 +139,14 @@ export default class Projects extends Component {
 	render() {
 		return (
 			<div className="container">
+				<Helmet>
+                    <title>Projects</title>
+                </Helmet>
 				<MinDiv>
 					<Header>PROJECTS >></Header>
 				</MinDiv>
 				<br/>
+				<MainContainer>
 				<SubContainer>
 					<Card>
 						<SubHeader>
@@ -143,7 +158,7 @@ export default class Projects extends Component {
 								height={'100%'} 
 								fluid={false} 
 								playsInline 
-								poster={'https://udemy-images.udemy.com/course/750x422/1719462_5050.jpg'}
+								poster={flutterImg}
 								src={require('../Theme/videos/dart-project.MP4')}/>
 							
 						</SubActionsBody>
@@ -158,7 +173,7 @@ export default class Projects extends Component {
 							<h4>Accounting System (Python)</h4>
 						</SubHeader>
 						<SubActionsBody>
-							<ImgDiv className="card-image"/>
+							<ImgDiv className="card-image" imgSrc="https://pluralsight.imgix.net/paths/python-7be70baaac.png"/>
 						</SubActionsBody>
 						<SubActionsMini>
 							<a target="_blank" href="https://github.com/nincas/job_order">Github</a>
@@ -168,26 +183,31 @@ export default class Projects extends Component {
 
 					<Card>
 						<SubHeader>
-							<h4>Employee Monitoring System (PHP)</h4>
+							<h4>chrome-scraper-football</h4>
 						</SubHeader>
-						<SubActionsBody/>
+						<SubActionsBody>
+							<ImgDiv className="card-image" imgSrc={phpImg}/>
+						</SubActionsBody>
 						<SubActionsMini>
 							<a>Github</a>
-							<a target="_blank" href="http://onin.uphero.com/manpower/">Project</a>
+							<a target="_blank" href="https://github.com/nincas/chrome-scraper-football">Project</a>
 						</SubActionsMini>
 					</Card>
 
 					<Card>
 						<SubHeader>
-							<h4>HAPPI Data Raw conversion</h4>
+							<h4>Preymwork</h4>
 						</SubHeader>
-						<SubActionsBody/>
+						<SubActionsBody>
+							<ImgDiv className="card-image" imgSrc={phpImg}/>
+						</SubActionsBody>
 						<SubActionsMini>
-							<a target="_blank" href="https://github.com/nincas/happi_raw_data_converter">Github</a>
+							<a target="_blank" href="https://github.com/nincas/preymwork">Github</a>
 							<a>Project</a>
 						</SubActionsMini>
 					</Card>			
 				</SubContainer>
+				</MainContainer>
 				<hr/>
 				<FooterDiv>
 					<MinDiv>

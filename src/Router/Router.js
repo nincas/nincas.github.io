@@ -26,11 +26,11 @@ const ErrorComp = (args) => {
 const Footer = () => {
     return (
         <div className="footer">
-            <a target="_blank" href="http://facebook.com/nnocsupnn" className="fa fa-facebook"><React.Fragment/></a> 
-            <a target="_blank" href="https://instagram.com/nnocsupnn" className="fa fa-instagram"><React.Fragment/></a>
-            <a target="_blank" href="https://www.linkedin.com/in/nnocsupnn/" className="fa fa-linkedin"><React.Fragment/></a>
-            <a target="_blank" href="mailto:nincas21@gmail.com" className="fa fa-google"><React.Fragment/></a>
-            <a target="_blank" href="https://github.com/nincas" className="fa fa-github"><React.Fragment/></a>
+            <a target="_blank" href="http://facebook.com/nnocsupnn" className="fa fa-facebook" title="Facebook"><React.Fragment/></a> 
+            <a target="_blank" href="https://instagram.com/nnocsupnn" className="fa fa-instagram" title="Instagram"><React.Fragment/></a>
+            <a target="_blank" href="https://www.linkedin.com/in/nnocsupnn/" className="fa fa-linkedin" title="Linkedin"><React.Fragment/></a>
+            <a target="_blank" href="mailto:nincas21@gmail.com" className="fa fa-google" title="Gmail"><React.Fragment/></a>
+            <a target="_blank" href="https://github.com/nincas" className="fa fa-github" title="Github"><React.Fragment/></a>
 
         </div>
     )
