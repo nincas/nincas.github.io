@@ -95,10 +95,29 @@ export default createGlobalStyle`
     ul {
         list-style: none !important;
     }
+    
+    .popup-content {
+        width: 33% !important;
+        border-radius: 1em;
+        background: linear-gradient(to right bottom, transparent, 45%, #26282b, #333) !important;
+        color: #fff;
+        font-size: 30px !important;
+        text-align: center;
+        height: 33% !important;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
 
     @media screen and (max-width: 768px) {
         #headerName h1 {
             font-size: 24px !important;    
+        }
+        
+        .popup-content {
+            width: 95% !important;
+            height: 40% !important;
         }
     }
 `

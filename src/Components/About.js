@@ -18,56 +18,13 @@ const Header = styled.h1`
 		}
 	}
 `
-const Card = styled.div`
-	width: 270px;
-	height: 270px;
-	background: transparent;
-	
-`
-
 const SubContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
+	text-transform: uppercase;
 `
 
-const Actions = styled.div`
-
-`
-
-const SubHeader = styled.div`
-	width: 100%;
-	text-align: center;
-`
-
-const SubActionsBody = styled.div`
-	width: 100%;
-	height: 65%;
-`
-
-const SubActionsMini = styled.div`
-	width: 100%;
-	height: 20%;
-	background: transparent;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-
-	a {
-		height: 100%;
-		width: 100%;
-		text-align: center;
-		padding: 15px 0;
-		text-decoration: none;
-		font-size: 2rem;
-		color: #fff;
-	}
-
-	a:hover {
-		background: rgb(52, 52, 52);
-		color: #fff;
-	}
-`
 
 const LinkDiv = styled.div`
 	height: 100%;
@@ -84,31 +41,8 @@ const MinDiv = styled.div`
     font-size: 24px;
 `
 
-const ImgDiv = styled.div`
-	width: 100%;
-	height: 100%;
-	background-image: url("https://pluralsight.imgix.net/paths/python-7be70baaac.png");
-	background-position: center;
-  	background-size: cover;
-	
-
-	.card-image:hover {
-		transform: scale(1.2);
-	}
-`
-
-
 const SpanDiv = styled.span`
     color: red;
-`
-
-const FooterDiv = styled.div`
-	margin-left: 50%;
-	transform: translate(-50%);
-	text-align: center;
-	font-size: 34px;
-	color: white;
-	text-transform: uppercase;
 `
 
 const Item = styled.span`
@@ -122,53 +56,116 @@ const ExpCont = styled.div`
     padding-top: 10px;
 `
 
-const About = () => {
-    return (
-        <div className="container">
-            <Helmet>
-                <title>About</title>
-            </Helmet>
-            <MinDiv>
-                <Header>ABOUT >></Header>
-            </MinDiv>
-            <br/>
-            <SubContainer>
-                <MinDiv>
-                    Graduated from <SpanDiv>Tarlac State University.</SpanDiv><br/>
-                    <SpanDiv>Experiences</SpanDiv>
-                    <ExpCont>
-                        <SpanDiv>Pasig, One San Miguel - 2017/18</SpanDiv>
-                        <ul>
-                            <li>IT Desktop/Programmer</li>
-                        </ul>
-                    </ExpCont>
-                    <ExpCont>
-                        <SpanDiv>Makati - 2018/19</SpanDiv>
-                        <ul>
-                            <li>Software Developer</li>
-                            <li>Sr Software Developer</li>
+const RowDiv = styled.div`
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-position: center;
+  	background-size: cover;
+  	
+  	a:hover {
+  	    color: #fff;
+  	    text-decoration: none;
+  	}
+`
 
-                        </ul>
-                    </ExpCont>
-                    <ExpCont>
-                        <SpanDiv>Taguig, BGC - 2019</SpanDiv>
-                        <ul>
-                            <li>Full Stack Developer</li>
-                        </ul>
-                    </ExpCont>
-                    I love learning new technologies, always seeking for challenges. <FontAwesomeIcon icon={faSmileWink}/>
-                    <hr/>
-                    <Item className="fa fa-code"></Item>
-                    <SpanDiv>Programming Languages</SpanDiv>
-                    <br/>Javascript
-                    <br/>PHP
-                    <br/>C#
-                    <br/>Python
-                    <br/>Dart
+const Img = styled.img`
+    height: 100px;
+	border-radius: 50%;
+	border: 1px solid #00ced1;
+	margin: 0px 10px;
+`
+
+const Link = styled.a`
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+    background: #0077B5;
+    margin: 5px;
+	padding: 5px;
+	border-radius: 5px;
+`
+
+
+class About extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            github: {}
+        }
+    }
+
+    componentWillMount() {
+        (async () => {
+            let data = await fetch(`https://api.github.com/users/nincas`);
+            let user = await data.json();
+
+            this.setState({
+                github: user
+            })
+        }).bind(this)()
+    }
+
+
+    render() {
+        return (
+            <div className="container">
+                <Helmet>
+                    <title>About</title>
+                </Helmet>
+                <MinDiv>
+                    <Header>ABOUT >></Header>
                 </MinDiv>
-            </SubContainer>
-        </div>
-    )
+                <br/>
+                <RowDiv>
+                    <Img src={this.state.github.avatar_url}/>
+                </RowDiv>
+                <RowDiv>
+                    <Link href={'https://' + this.state.github.blog} target="_blank">BLOG</Link>
+                    <Link href="https://facebook.com/nnocsupnn" target="_blank">{this.state.github.name}</Link>
+                    <Link href={this.state.github.repos_url} target="_blank">REPOS</Link>
+                </RowDiv>
+
+                <SubContainer>
+                    <MinDiv>
+                        Graduated from <SpanDiv>Tarlac State University.</SpanDiv><br/>
+                        <SpanDiv>Experiences</SpanDiv>
+                        <ExpCont>
+                            <SpanDiv>Pasig, One San Miguel - 2017/18</SpanDiv>
+                            <ul>
+                                <li>IT Desktop/Programmer</li>
+                            </ul>
+                        </ExpCont>
+                        <ExpCont>
+                            <SpanDiv>Makati - 2018/19</SpanDiv>
+                            <ul>
+                                <li>Software Developer</li>
+                                <li>Sr Software Developer</li>
+
+                            </ul>
+                        </ExpCont>
+                        <ExpCont>
+                            <SpanDiv>Taguig, BGC - 2019</SpanDiv>
+                            <ul>
+                                <li>Full Stack Developer</li>
+                            </ul>
+                        </ExpCont>
+                        <Item className="fa fa-code"></Item>
+                        <SpanDiv>Programming Languages</SpanDiv>
+                        <br/>Javascript
+                        <br/>PHP
+                        <br/>C#
+                        <br/>Python
+                        <br/>Dart
+                    </MinDiv>
+                </SubContainer>
+            </div>
+        )
+    }
 }
 
 export default About;

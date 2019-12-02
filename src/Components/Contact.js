@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHashtag } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { Helmet } from 'react-helmet'
+import * as emailjs from 'emailjs-com'
+import Popup from "reactjs-popup";
 
 const Container = styled.div`
     font-size: 3rem;
@@ -65,8 +67,63 @@ const Container = styled.div`
     }
 `
 
-const spacer = styled.div`
-    flex: 1;
+const LoaderDiv = styled.div`
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 8px solid rgb(78, 78, 78);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    animation: Loading 1s ease infinite;
+    top: 45%;
+    transform: translateY(50%);
+    position: absolute;
+
+    @keyframes Loading {
+        from {
+            transform: rotate(360deg);
+        }
+
+        to {
+            transform: rotate(0deg);
+        }
+    }
+`
+
+const PreLoaderDiv = styled.div`
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 8px dotted white;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    animation: PreLoading 1s ease-in-out infinite;
+    top: 45%;
+    transform: translateY(50%);
+    position: absolute;
+
+    @keyframes PreLoading {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+`
+
+const LoaderContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 50%;
+    margin-right: 50%;
+`
+
+const LoadingText = styled.h3`
+    padding-top: 30px;
+    text-align: center;
 `
 
 const SendButton = styled.button`
@@ -80,36 +137,105 @@ const MinDiv = styled.div`
 	text-align: center;
 `
 
+const SpanTitle = styled.span`
+   
+`
+
 class Contact extends Component {
-    state = {
-        position: 0,
-        clicked: false
+    constructor(props) {
+        super(props)
+        this.state = {
+            email: '',
+            message: '',
+            templateId: 'nnocsupnn',
+            apiKey: 'user_rT7mAsiVnygIkV53L2Mvn',
+            sending: false,
+            sent: false
+        }
     }
 
-    handleSend = (e) => {
-        this.setState(prevState => {
-            return { position: 100, clicked: true }
-        })
+    handleChange = (param, e) => {
+        this.setState({ [param]: e.target.value })
+    };
 
-        alert('Not working. Sorry! :)')
+    resetForm = () => {
+        this.setState({
+            email: '',
+            message: ''
+        })
+    };
+
+    handleSend = (e) => {
+        e.preventDefault()
+        const { email, message, templateId, apiKey } = this.state
+
+        let templateParams = {
+            from_name: email,
+            to_name: 'onin',
+            subject: 'nnocsupnn - inquiry',
+            reply_to: email,
+            message_html: message
+        };
+
+        this.setState({
+            sending: true,
+            sent: false
+        });
+
+        emailjs.send(
+            'gmail',
+            templateId,
+            templateParams,
+            apiKey
+        ).then(function(response) {
+            this.setState({
+                sending: false,
+                sent: true
+            });
+
+            this.resetForm();
+        }.bind(this), function(error) {
+            console.log('FAILED...', error);
+        }.bind(this));
+    };
+
+    handleModal = (current) => {
+        return !current;
     }
 
     render () {
+        const fragment = (<React.Fragment></React.Fragment>);
         return (
             <div className="container">
+                {
+                    this.state.sending === true ?
+                    <LoaderContainer>
+                        <LoaderDiv/>
+                        <PreLoaderDiv/>
+                    </LoaderContainer>
+                    : fragment
+                }
+
+
+                {
+                    this.state.sent === true ?
+                    <Popup open={this.handleModal.bind(this, this.state.sent)} modal closeOnDocumentClick>
+                        <SpanTitle>Thank You! <FontAwesomeIcon icon={faHeart}/></SpanTitle>
+                    </Popup>
+                        :
+                        fragment
+                }
                 <Helmet>
                     <title>Contact</title>
                 </Helmet>
-                <Container position={this.state.position} clicked={this.state.clicked}>
+                <Container>
                     <MinDiv><h1>SEND ME SOME LOVE! >></h1></MinDiv>
                     <hr/>
                     Tel No. +639568534856
-                    <form action="/">
-                        <input type="email" required placeholder="Enter email" name="email" />
-                        <spacer/>
-                        <textarea placeholder="Enter message" name="message" maxLength="255"/>
-                        <spacer/>
-                        <SendButton type="submit" onClick={this.handleSend}>Send!</SendButton>
+                    <form onSubmit={this.handleSend.bind(this)}>
+                        <input type="email" required placeholder="Enter email" name="email" onChange={this.handleChange.bind(this, 'email')} />
+                        <textarea placeholder="Enter message" name="message" maxLength="255" onChange={this.handleChange.bind(this, 'message')}/>
+                        <SendButton >Send!</SendButton>
                     </form>
                 </Container>
             </div>
