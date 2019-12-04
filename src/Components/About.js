@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSmileWink, faCode } from '@fortawesome/free-solid-svg-icons'
 import { Helmet } from 'react-helmet'
+import resume from '../Theme/files/NIÑO-MANALO-CASUPANAN.docx'
 
 
 const Header = styled.h1`
@@ -84,7 +85,7 @@ const Link = styled.a`
     color: #fff;
     text-transform: uppercase;
     font-size: 16px;
-    background: #0077B5;
+    background:${props => props.color || "#0077B5"} ;
     margin: 5px;
 	padding: 5px;
 	border-radius: 5px;
@@ -122,12 +123,15 @@ class About extends React.Component {
                 </MinDiv>
                 <br/>
                 <RowDiv>
-                    <Img src={this.state.github.avatar_url}/>
+                    <Link href={resume} download title="Download Resume" color="transparent">
+                        <Img src={this.state.github.avatar_url}/>
+                    </Link>
                 </RowDiv>
                 <RowDiv>
                     <Link href={'https://' + this.state.github.blog} target="_blank">BLOG</Link>
                     <Link href="https://facebook.com/nnocsupnn" target="_blank">{this.state.github.name}</Link>
                     <Link href={this.state.github.repos_url} target="_blank">REPOS</Link>
+                    
                 </RowDiv>
 
                 <SubContainer>
