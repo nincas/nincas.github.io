@@ -136,8 +136,7 @@ class About extends React.Component {
 
                 <SubContainer>
                     <MinDiv>
-                        Graduated from <SpanDiv>Tarlac State University.</SpanDiv><br/>
-                        <SpanDiv>Experiences</SpanDiv>
+                        <h2>Experiences</h2>
                         <ExpCont>
                             <SpanDiv>Pasig, One San Miguel - 2017/18</SpanDiv>
                             <ul>
@@ -158,6 +157,12 @@ class About extends React.Component {
                                 <li>Full Stack Developer</li>
                             </ul>
                         </ExpCont>
+                        <ExpCont>
+                            <SpanDiv>Makati, 2021</SpanDiv>
+                            <ul>
+                                <li>Application Engineer</li>
+                            </ul>
+                        </ExpCont>
                         <Item className="fa fa-code"></Item>
                         <SpanDiv>Programming Languages</SpanDiv>
                         <br/>Javascript
@@ -165,6 +170,7 @@ class About extends React.Component {
                         <br/>C#
                         <br/>Python
                         <br/>Dart
+                        <br/>Kotlin (Spring Boot Java)
                     </MinDiv>
                 </SubContainer>
             </div>

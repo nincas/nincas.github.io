@@ -58,9 +58,9 @@ export default function Index() {
 			<HeaderDiv id="headerName" className="display-4"><h1  style={{fontSize: "10rem"}}>NNOCSUPNN >></h1></HeaderDiv>
 			<p className="lead">
 				<BlockQuote>
-					<SpanTxt><FontAwesomeIcon icon={faCode}/> FULLSTACK DEVELOPER</SpanTxt>
+					<SpanTxt><FontAwesomeIcon icon={faCode}/> APPLICATION ENGINEER</SpanTxt>
 					<br/>
-					<SpanTxt><FontAwesomeIcon icon={faMapMarkerAlt}/> 5th Ave. BGC, Taguig City</SpanTxt>
+					<SpanTxt><FontAwesomeIcon icon={faMapMarkerAlt}/> Medicard Philippines, Inc. Makati City</SpanTxt>
 				</BlockQuote>
 			</p>
 			
