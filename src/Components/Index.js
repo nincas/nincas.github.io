@@ -60,7 +60,7 @@ export default function Index() {
 				<BlockQuote>
 					<SpanTxt><FontAwesomeIcon icon={faCode}/> APPLICATION ENGINEER</SpanTxt>
 					<br/>
-					<SpanTxt><FontAwesomeIcon icon={faMapMarkerAlt}/> Medicard Philippines, Inc. Makati City</SpanTxt>
+					<SpanTxt><FontAwesomeIcon icon={faMapMarkerAlt}/> Medicard Philippines, Makati City</SpanTxt>
 				</BlockQuote>
 			</p>
 			
