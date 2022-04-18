@@ -102,8 +102,10 @@ class About extends React.Component {
 
     componentWillMount() {
         (async () => {
-            let data = await fetch(`https://api.github.com/users/nincas`);
+            let data = await fetch(`https://api.github.com/users/nnocsupnn`);
             let user = await data.json();
+
+            console.log(user)
 
             this.setState({
                 github: user
@@ -160,7 +162,8 @@ class About extends React.Component {
                         <ExpCont>
                             <SpanDiv>Makati, 2021</SpanDiv>
                             <ul>
-                                <li>Application Engineer</li>
+                                <li>Applications Analyst - Team Lead (2022)</li>
+                                <li>Application Engineer (2021)</li>
                             </ul>
                         </ExpCont>
                         <Item className="fa fa-code"></Item>
