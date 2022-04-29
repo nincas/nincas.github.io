@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSmileWink, faCode } from '@fortawesome/free-solid-svg-icons'
 import { Helmet } from 'react-helmet'
-import resume from '../Theme/files/NINO-CASUPANAN.docx'
+import resume from '../Theme/files/NINO-MANALO-CASUPANAN-CV-20220420.docx'
 
 
 const Header = styled.h1`
