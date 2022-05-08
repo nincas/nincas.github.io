@@ -164,7 +164,7 @@ export default class Projects extends Component {
 						</SubActionsBody>
 						<SubActionsMini>
 							<a target="_blank" href="https://github.com/nincas/letsfacts">Github</a>
-							<a>Project</a>
+							<a href="https://github.com/nnocsupnn/letsfacts/releases/tag/0.0.1a" target="_blank">Download</a>
 						</SubActionsMini>
 					</Card>
 
