@@ -148,11 +148,10 @@ class About extends React.Component {
                             <ul>
                                 <li>Software Developer</li>
                                 <li>Sr Software Developer</li>
-
                             </ul>
                         </ExpCont>
                         <ExpCont>
-                            <SpanDiv>Taguig, BGC - 2019</SpanDiv>
+                            <SpanDiv>Taguig, BGC - 2019/21</SpanDiv>
                             <ul>
                                 <li>Full Stack Developer</li>
                             </ul>
