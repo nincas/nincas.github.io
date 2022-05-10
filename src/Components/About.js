@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSmileWink, faCode } from '@fortawesome/free-solid-svg-icons'
 import { Helmet } from 'react-helmet'
 import resume from '../Theme/files/NINO-MANALO-CASUPANAN-CV-20220420.docx'
+import resume2022 from '../Theme/files/SOFTWARE-ENGINEER-1.pdf'
 
 
 const Header = styled.h1`
@@ -125,15 +126,12 @@ class About extends React.Component {
                 </MinDiv>
                 <br/>
                 <RowDiv>
-                    <Link href={resume} download title="Download Resume" color="transparent">
+                    <Link href={resume2022} download title="Download Resume" color="transparent">
                         <Img src={this.state.github.avatar_url}/>
                     </Link>
                 </RowDiv>
                 <RowDiv>
-                    <Link href={'https://' + this.state.github.blog} target="_blank">BLOG</Link>
-                    <Link href="https://facebook.com/nnocsupnn" target="_blank">{this.state.github.name}</Link>
-                    <Link href={this.state.github.repos_url} target="_blank">REPOS</Link>
-                    
+                    <Link href={resume} download title='My Old Resume from 2017 - 2021'>OLD CV 2017 - 2021</Link>
                 </RowDiv>
 
                 <SubContainer>
